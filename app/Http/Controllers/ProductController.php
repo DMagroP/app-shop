@@ -18,8 +18,16 @@ class ProductController extends Controller
         return view('admin.products.create');
     }
 
-    public function store()
+    public function store(Request $request)
     {
-        
+        $product = new Product();
+        $product->name = $request->input('name');
+        $product->description = $request->input('description');
+        $product->long_description = $request->input('long_description');
+        $product->price = $request->input('price');
+
+        $product->save();
+
+        return redirect('/admin/products');
     }
 }
