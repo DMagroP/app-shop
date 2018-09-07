@@ -13,7 +13,7 @@
         <div class="section text-center">
             <h2 class="title">Imágenes del producto "{{ $product->name }}"</h2>
             
-            <form action="" method="post">
+            <form action="" method="post" enctype="multipart/form-data">
                 {{ csrf_field() }}
                 <input type="file" name="photo" id="photo" required>
                 <button type="submit" class="btn btn-primary btn-round">Subir nueva imagen</button>
@@ -22,13 +22,12 @@
             
             <hr>
             
-            
             <div class="row">
                 @foreach ($images as $image)
                     <div class="col-md-4">
                         <div class="panel panel-default">
                             <div class="panel-body">
-                                <img src="{{ $image->image }}" alt="">
+                                <img src="{{ $image->url }}" alt="" width='250'>
                                 <button type="submit" class="btn btn-danger btn-round">Eliminar imagen</button>
                             </div>
                         </div>
