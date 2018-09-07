@@ -19,9 +19,9 @@
                         <thead>
                             <tr>
                                 <th class="text-center">#</th>
-                                <th>Nombre</th>
-                                <th class="col-md-4">Descripción</th>
-                                <th>Categoria</th>
+                                <th class="col-md-2 text-center">Nombre</th>
+                                <th class="col-md-5 text-center">Descripción</th>
+                                <th class="text-center" >Categoria</th>
                                 <th class="text-right">Precio</th>
                                 <th class="text-right">Opciones</th>
                             </tr>
@@ -38,8 +38,11 @@
                                     <form action="{{ url('/admin/products/'.$product->id) }}" method="POST">
                                         {{ csrf_field() }}
                                         {{ method_field('DELETE') }}
-                                        <a type="button" rel="tooltip" title="View Profile" class="btn btn-info btn-simple btn-xs">
+                                        <a href="#" rel="tooltip" title="Ver Producto" class="btn btn-info btn-simple btn-xs">
                                             <i class="fa fa-info"></i>
+                                        </a>
+                                        <a href="{{ url('/admin/products/'.$product->id.'/images')}}" rel="tooltip" title="Imagenes del producto" class="btn btn-warning btn-simple btn-xs">
+                                            <i class="fa fa-image"></i>
                                         </a>
                                         <a href="{{ url('/admin/products/'.$product->id.'/edit')}}" rel="tooltip" title="Editar Producto" class="btn btn-success btn-simple btn-xs">
                                             <i class="fa fa-edit"></i>
