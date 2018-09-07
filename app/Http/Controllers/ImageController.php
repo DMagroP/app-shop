@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Product;
 use App\ProductImage;
+use File;
 
 class ImageController extends Controller
 {
@@ -21,18 +22,33 @@ class ImageController extends Controller
         $file = $request->file('photo');
         $path = public_path() . '/images/products';
         $fileName = uniqid() .  $file->getClientOriginalName();
-        $file->move($path, $fileName);
+        $moved = $file->move($path, $fileName);
 
-        $productImage = new ProductImage();
-        $productImage->image = $fileName;  
-        // $productImage->featured = false;
-        $productImage->product_id = $id; 
+        if ($moved) {
+            $productImage = new ProductImage();
+            $productImage->image = $fileName;  
+            // $productImage->featured = false;
+            $productImage->product_id = $id; 
 
-        $productImage->save();
+            $productImage->save();
+        }
     }
 
-    public function destroy($id)
+    public function destroy(Request $request)
     {
+        $productImage = ProductImage::find($request->input('image_id'));
         
+        if (substr($productImage->image, 0,4) === "http") {
+            $deleted = true;
+        } else {
+            $fullPath = public_path() . '/images/products/' . $productImage->image;
+            $deleted = File::delete($fullPath);
+        }
+
+        if ($deleted) {
+            $productImage->delete();
+        }
+
+        return back();
     }
 }
