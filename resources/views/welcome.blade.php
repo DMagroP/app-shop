@@ -97,8 +97,8 @@
                         </div>
                     </div>
                     @endforeach
-                    <div class="col">
-                        <div class="text-center">
+                    <div class="col-md-12">
+                        <div class="center-block">
                             {{ $products->links() }}
                         </div>
                     </div>
