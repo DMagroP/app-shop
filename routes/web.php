@@ -16,7 +16,7 @@ Route::get('/', 'TestController@welcome');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/products/{id}', 'ProductsController@show');
+Route::get('/products/{id}', 'ProductDetailController@show');
 
 Route::middleware(['auth','admin'])->prefix('admin')->namespace('Admin')->group(function () {
     Route::get('/products', 'ProductController@index');
