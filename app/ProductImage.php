@@ -18,6 +18,6 @@ class ProductImage extends Model
             return $this->image;
         }
 
-        return '/app-shop/public/images/products/'. $this->image;
+        return '/images/products/'. $this->image;
     }
 }
