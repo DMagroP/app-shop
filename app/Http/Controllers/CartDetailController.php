@@ -22,7 +22,10 @@ class CartDetailController extends Controller
     public function destroy(Request $request)
     {
         $cartDetail = CartDetail::find($request->input('cart_detail_id'));
-        $cartDetail->delete();
+        if ($cartDetail->cart_id == auth()->user()->cart->id)
+        {
+            $cartDetail->delete();
+        }
 
         return back();
     }
