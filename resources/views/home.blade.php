@@ -35,11 +35,41 @@
                     </li>
                 </ul>
 
-                @foreach(auth()->user()->cart->details as $detail)
-                <ul>
-                    <li>{{ $detail }}</li>
-                </ul>
-                @endforeach
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th class="text-center">#</th>
+                            <th class="text-center">Nombre</th>
+                            <th>Precio</th>
+                            <th>Cantidad</th>
+                            <th>Subtotal</th>
+                            <th>Opciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach(auth()->user()->cart->details as $detail)
+                        <tr>
+                            <td class="text-center"><img src="{{ $detail->product->featured_image_url }}" height="50px" width="50px"></td>
+                            <td><a href="{{ url('/products/'.$detail->product->id) }}" target="_blank">{{ $detail->product->name }}</a></td>
+                            <td>&euro; {{ $detail->product->price}}</td>
+                            <td>{{ $detail->quantity}}</td>
+                            <td>&euro; {{ $detail->quantity * $detail->product->price}}</td>
+                            <td class="td-actions">
+                                <form action="{{ url('/admin/products/'.$detail->product->id) }}" method="POST">
+                                    {{ csrf_field() }}
+                                    {{ method_field('DELETE') }}
+                                    <a href="{{ url('/products/'.$detail->product->id) }}"  target="_blank" rel="tooltip" title="Ver Producto" class="btn btn-info btn-simple btn-xs">
+                                        <i class="fa fa-info"></i>
+                                    </a>
+                                    <button type="submit" rel="tooltip" title="Borrar Producto" class="btn btn-danger btn-simple btn-xs">
+                                        <i class="fa fa-times"></i>
+                                    </button>
+                                </form>
+                            </td>
+                        </tr>
+                        @endforeach
+                    </tbody>
+                </table>
                             
 
         </div>
