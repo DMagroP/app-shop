@@ -78,7 +78,14 @@
                         @endforeach
                     </tbody>
                 </table>
-                            
+                <div class="text-center">
+                    <form action="{{ url('/order')}} " method="post">
+                        {{ csrf_field() }}
+                        <button class="btn btn-primary btn-round">
+                        <i class="material-icons">done</i> Realizar Pedido   
+                    </button>
+                    </form>
+                </div>
 
         </div>
     </div>
