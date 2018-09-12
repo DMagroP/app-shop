@@ -30,4 +30,14 @@ class Product extends Model
 
         return '/app-shop/public/images/products/default.png';
     }
+
+    public function getCategoryNameAttribute()
+    {
+        if ($this->category) 
+        {
+            return $this->category->name;
+        } else {
+            return 'General';
+        }
+    }
 }

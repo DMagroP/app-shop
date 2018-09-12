@@ -32,13 +32,13 @@
                                 <td class="text-center">{{ $product->id }}</td>
                                 <td>{{ $product->name }}</td>
                                 <td>{{ $product->description }}</td>
-                                <td>{{ $product->category ? $product->category->name : 'General' }}</td>
+                                <td>{{ $product->category_name }}</td>
                                 <td class="text-right">&euro; {{ $product->price}}</td>
                                 <td class="td-actions text-right">
                                     <form action="{{ url('/admin/products/'.$product->id) }}" method="POST">
                                         {{ csrf_field() }}
                                         {{ method_field('DELETE') }}
-                                        <a href="#" rel="tooltip" title="Ver Producto" class="btn btn-info btn-simple btn-xs">
+                                        <a href="{{ url('/products/'.$product->id) }}" target="_blank" rel="tooltip" title="Ver Producto" class="btn btn-info btn-simple btn-xs">
                                             <i class="fa fa-info"></i>
                                         </a>
                                         <a href="{{ url('/admin/products/'.$product->id.'/images')}}" rel="tooltip" title="Imagenes del producto" class="btn btn-warning btn-simple btn-xs">
