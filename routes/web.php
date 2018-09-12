@@ -35,6 +35,13 @@ Route::middleware(['auth','admin'])->prefix('admin')->namespace('Admin')->group(
     Route::post('/products/{id}/images', 'ImageController@store');
     Route::delete('/products/{id}/images', 'ImageController@destroy');
     Route::get('/products/{id}/images/select/{image}', 'ImageController@select');
+
+    Route::get('/categories', 'CategoryController@index');
+    Route::get('/categories/create', 'CategoryController@create');
+    Route::post('/categories', 'CategoryController@store');
+    Route::get('/categories/{category}/edit', 'CategoryController@edit');
+    Route::post('/categories/{category}/edit', 'CategoryController@update');
+    Route::delete('/categories/{category}', 'CategoryController@destroy');
 });
 
 
