@@ -8,14 +8,14 @@
         .team .row .col-md-4 {
             margin-bottom: 5em;
         }
-        .row {
+        .team .row {
             display: -webkit-box;
             display: -webkit-flex;
             display: -ms-flexbox;
             display:         flex;
             flex-wrap: wrap;
         }
-        .row > [class*='col-'] {
+        .team .row > [class*='col-'] {
             display: flex;
             flex-direction: column;
         }
