@@ -112,7 +112,8 @@
     <script src="{{ asset('js/bootstrap-datepicker.js')}}" type="text/javascript"></script>
 
     <!-- Control Center for Material Kit: activating the ripples, parallax effects, scripts from the example pages etc -->
-    <script src="{{ asset('js/material-kit.js')}}" type="text/javascript"></script>
+	<script src="{{ asset('js/material-kit.js')}}" type="text/javascript"></script>
+	@yield('scripts')
 
 </html>
     
