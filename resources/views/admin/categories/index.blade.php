@@ -18,6 +18,7 @@
                     <table class="table">
                         <thead>
                             <tr>
+                                <th>#</th>
                                 <th class="col-md-2 text-center">Nombre</th>
                                 <th class="col-md-5 text-center">Descripción</th>
                                 <th class="text-right">Opciones</th>
@@ -26,6 +27,7 @@
                         <tbody>
                             @foreach ($categories as $key => $category)
                             <tr>
+                                <td class="text-center"><img src="{{ $category->featured_image_url }}" height="50px" width="50px"></td>
                                 <td>{{ $category->name }}</td>
                                 <td class="text-left">{{ $category->description }}</td>
                                 <td class="td-actions text-right">
