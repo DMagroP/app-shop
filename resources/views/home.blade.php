@@ -78,6 +78,13 @@
                         @endforeach
                     </tbody>
                 </table>
+
+                <p>
+                    <strong>
+                        Importe a pagar: {{ auth()->user()->cart->total }} €.
+                    </strong>
+                </p>
+
                 <div class="text-center">
                     <form action="{{ url('/order')}} " method="post">
                         {{ csrf_field() }}
