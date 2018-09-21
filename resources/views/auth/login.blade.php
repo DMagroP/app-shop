@@ -30,16 +30,16 @@
 
                             <div class="input-group">
                                 <span class="input-group-addon">
-                                    <i class="material-icons">email</i>
+                                    <i class="material-icons">fingerprint</i>
                                 </span>
-                                <input id="email" type="email" class="form-control" name="email" placeholder="Email..." value="{{ old('email') }}" required autofocus>
+                                <input id="username" type="text" class="form-control" name="username" placeholder="Username..." value="{{ old('username') }}" required autofocus>
                             </div>
 
                             <div class="input-group">
                                 <span class="input-group-addon">
                                     <i class="material-icons">lock_outline</i>
                                 </span>
-                                <input id="password" type="password" placeholder="Password..." class="form-control" name="password" required>
+                                <input id="password" type="password" placeholder="Contraseña..." class="form-control" name="password" required>
                             </div>
 
                             <div class="checkbox">

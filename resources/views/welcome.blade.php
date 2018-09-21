@@ -149,29 +149,25 @@
                 <div class="col-md-8 col-md-offset-2">
                     <h2 class="text-center title">¿Aún no te has registrado?</h2>
                     <h4 class="text-center description">Registrate ingresando tus datos básicos, y podrás realizar tus pedidos a través de nuestro carrito de compras. Si aún no te decides, de todas formas, con tu cuenta de usuario podrás hacer todas tus consultas sin compromiso.</h4>
-                    <form class="contact-form">
+                    <form class="contact-form" action="{{ url('register') }}" method='GET'>
                         <div class="row">
                             <div class="col-md-6">
                             <div class="form-group">
                                 <label class="bmd-label-floating">Nombre</label>
-                                <input type="email" class="form-control">
+                                <input type="text" class="form-control" name='name'>
                             </div>
                             </div>
                             <div class="col-md-6">
                             <div class="form-group">
                                 <label class="bmd-label-floating">Correo electrónico</label>
-                                <input type="email" class="form-control">
+                                <input type="email" class="form-control" name='email'>
                             </div>
                             </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="exampleMessage" class="bmd-label-floating">Tu mensaje</label>
-                            <textarea type="email" class="form-control" rows="4" id="exampleMessage"></textarea>
                         </div>
                         <div class="row">
-                            <div class="col-md-4 ml-auto mr-auto text-center">
+                            <div class="col-md-12 text-center">
                             <button class="btn btn-primary btn-raised">
-                                Enviar consulta
+                                Iniciar Registro
                             </button>
                             </div>
                         </div>
